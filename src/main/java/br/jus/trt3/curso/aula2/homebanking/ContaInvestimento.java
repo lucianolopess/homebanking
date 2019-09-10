@@ -14,4 +14,9 @@ public class ContaInvestimento extends Conta {
     public TipoAplicacao getTipoAplicacao() {
         return tipoAplicacao;
     }
+
+    @Override
+    public BigDecimal descontarTaxaMensal() {
+        return getSaldo().multiply(BigDecimal.valueOf(0.01 / 100));
+    }
 }

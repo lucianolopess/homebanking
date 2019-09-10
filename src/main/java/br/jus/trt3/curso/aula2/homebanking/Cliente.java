@@ -22,27 +22,27 @@ public class Cliente {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getSobrenome() {
-        return sobrenome;
+        return this.sobrenome;
     }
 
     public String getEndereco() {
-        return endereco;
+        return this.endereco;
     }
 
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     public List<Conta> getContas() {
-        return Collections.unmodifiableList(contas);
+        return Collections.unmodifiableList(this.contas);
     }
 
     public void addConta(Conta conta) {
-        contas.add(conta);
+        this.contas.add(conta);
     }
 
     public BigDecimal calcularAplicacoesTotais() {

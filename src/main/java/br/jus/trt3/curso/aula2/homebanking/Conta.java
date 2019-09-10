@@ -10,7 +10,7 @@ import java.util.List;
 public class Conta {
 
     private final Long id;
-    private final BigDecimal saldo;
+    private BigDecimal saldo;
     private final List<Movimento> movimentos = new ArrayList<>();
 
     public Conta(Long id, BigDecimal saldo) {
@@ -40,11 +40,16 @@ public class Conta {
         }
 
         movimentos.add(new Movimento(data, valor));
+        saldo = saldo.add(valor);
     }
 
     public void sacar(LocalDateTime data, BigDecimal valor) {
         if (valor.compareTo(BigDecimal.valueOf(0d)) < 0) {
             throw new IllegalArgumentException("O valor deve ser positivo");
+        }
+
+        if (valor.compareTo(saldo) > 0) {
+            throw new IllegalArgumentException("Saldo insuficiente");
         }
 
         if (valor.compareTo(BigDecimal.valueOf(1000)) > 0) {
@@ -54,9 +59,14 @@ public class Conta {
         }
 
         movimentos.add(new Movimento(data, valor.multiply(BigDecimal.valueOf(-1d))));
+        saldo = saldo.add(valor.multiply(BigDecimal.valueOf(-1d);
     }
 
     public void imprimirExtrato() {
         // TODO: refatorar para uma classe externa daqui a pouco
+    }
+
+    public BigDecimal descontarTaxaMensal() {
+        return BigDecimal.valueOf(0d);
     }
 }

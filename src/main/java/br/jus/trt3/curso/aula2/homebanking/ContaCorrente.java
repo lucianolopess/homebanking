@@ -14,4 +14,9 @@ public class ContaCorrente extends Conta {
     public BigDecimal getLimiteCredito() {
         return limiteCredito;
     }
+
+    @Override
+    public BigDecimal descontarTaxaMensal() {
+        return BigDecimal.valueOf(1d);
+    }
 }
