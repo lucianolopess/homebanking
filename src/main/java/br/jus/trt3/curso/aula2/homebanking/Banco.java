@@ -19,5 +19,15 @@ public class Banco {
     public void addCliente(Cliente cliente) {
         this.clientes.add(cliente);
     }
+
+    public void imprimirClientesFormatoPadrao() {
+        clientes.stream()
+            .forEach(cli -> System.out.println(cli.getNome() + " " + cli.getSobrenome()));
+    }
+
+    public void imprimirClientesFormatoAmericano() {
+        clientes.stream()
+            .forEach(cli -> System.out.println(cli.getSobrenome() + ", " + cli.getNome()));
+    }
     
 }   
