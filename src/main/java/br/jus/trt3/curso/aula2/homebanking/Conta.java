@@ -12,6 +12,7 @@ public class Conta {
     private final Long id;
     private BigDecimal saldo;
     private final List<Movimento> movimentos = new ArrayList<>();
+    private Subject<MovimentacaoAlta> emissor = new SubjectImpl<>();
 
     public Conta(Long id, BigDecimal saldo) {
         this.id = id;
@@ -36,7 +37,7 @@ public class Conta {
         }
 
         if (valor.compareTo(BigDecimal.valueOf(50000d)) > 0) {
-            // TODO: avisar o COAF ou o Toffoli (haha...)
+            emissor.notificarTodos(new MovimentacaoAlta(this, data, valor));
         }
 
         movimentos.add(new Movimento(data, valor));
