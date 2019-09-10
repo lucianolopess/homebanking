@@ -50,6 +50,11 @@ public class Cliente {
     }
 
     public void transferirFundos(Conta contaOrigem, Conta contaDestino, LocalDate data, BigDecimal valor) {
-        // Lançar movimento de saída na conta de origem e entrada na conta de destino
+        // TODO: Decidir onde colocar esse teste (na própria transferência? no banco? no cliente?)
+        if (contaOrigem.getCliente().equals(contaDestino.getCliente())) {
+            // Trassnf sem taxa
+        } else {
+            // Trans fcom taxa
+        }
     }
 }
