@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "br.jus.trt3.curso.aula2.homebanking.App",
+            "projectName": "homebanking"
+        }
+    ]
+}
