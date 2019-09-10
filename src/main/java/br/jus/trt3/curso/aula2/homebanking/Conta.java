@@ -12,16 +12,10 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    /**
-     * @return the id
-     */
     public Long getId() {
         return id;
     }
 
-    /**
-     * @return the saldo
-     */
     public BigDecimal getSaldo() {
         return saldo;
     }
