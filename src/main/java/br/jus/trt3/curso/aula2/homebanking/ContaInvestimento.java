@@ -6,8 +6,8 @@ public class ContaInvestimento extends Conta {
 
     private final TipoAplicacao tipoAplicacao;
 
-    public ContaInvestimento(Long id, BigDecimal saldo, TipoAplicacao tipoAplicacao) {
-        super(id, saldo);
+    public ContaInvestimento(Cliente cliente, Long id, BigDecimal saldo, TipoAplicacao tipoAplicacao) {
+        super(cliente, id, saldo);
         this.tipoAplicacao = tipoAplicacao;
     }
 

@@ -9,14 +9,20 @@ import java.util.List;
 
 public class Conta {
 
+    private final Cliente cliente;
     private final Long id;
     private BigDecimal saldo;
     private final List<Movimento> movimentos = new ArrayList<>();
     private Subject<MovimentacaoAlta> emissor = new SubjectImpl<>();
 
-    public Conta(Long id, BigDecimal saldo) {
+    public Conta(Cliente cliente, Long id, BigDecimal saldo) {
+        this.cliente = cliente;
         this.id = id;
         this.saldo = saldo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public Long getId() {
@@ -41,7 +47,7 @@ public class Conta {
         }
 
         movimentos.add(new Movimento(data, valor));
-        saldo = saldo.add(valor);
+        this.saldo = saldo.add(valor);
     }
 
     public void sacar(LocalDateTime data, BigDecimal valor) {
@@ -60,7 +66,7 @@ public class Conta {
         }
 
         movimentos.add(new Movimento(data, valor.multiply(BigDecimal.valueOf(-1d))));
-        saldo = saldo.add(valor.multiply(BigDecimal.valueOf(-1d);
+        this.saldo = saldo.add(valor.multiply(BigDecimal.valueOf(-1d)));
     }
 
     public void imprimirExtrato() {
