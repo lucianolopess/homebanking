@@ -1,14 +1,14 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Movimento {
 
     private final BigDecimal valor;
-    private final LocalDate data;
+    private final LocalDateTime data;
 
-    public Movimento(LocalDate data, BigDecimal valor) {
+    public Movimento(LocalDateTime data, BigDecimal valor) {
         this.valor = valor;
         this.data = data;
     }
@@ -17,7 +17,7 @@ public class Movimento {
         return valor;
     }
 
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return data;
     }
 }
