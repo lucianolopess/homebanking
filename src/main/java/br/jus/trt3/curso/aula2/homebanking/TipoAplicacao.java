@@ -1,8 +1,5 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
-/**
- * TipoAplicacao
- */
 public class TipoAplicacao {
 
     private final String descricao;
