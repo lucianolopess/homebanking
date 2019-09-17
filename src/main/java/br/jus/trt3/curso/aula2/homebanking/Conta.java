@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Flow.Subscriber;
 
 public abstract class Conta {
 
@@ -72,6 +73,10 @@ public abstract class Conta {
 
         movimentos.add(new Movimento(data, valor.multiply(BigDecimal.valueOf(-1d))));
         this.saldo = saldo.add(valor.multiply(BigDecimal.valueOf(-1d)));
+    }
+
+    public void registraAssinante(Observer<MovimentacaoAlta> assinante) {
+        emissor.addObserver(assinante);
     }
 
     public void imprimirExtrato() {

@@ -1,6 +1,6 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
-public class Coaf {
+public class Coaf implements Observer<MovimentacaoAlta> {
 
     private Coaf instance;
 
@@ -9,6 +9,11 @@ public class Coaf {
             instance = new Coaf();
         }
         return instance;
+    }
+
+    @Override
+    public void observe(MovimentacaoAlta valor) {
+        
     }
 
     
