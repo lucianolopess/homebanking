@@ -1,5 +1,7 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +9,8 @@ import java.util.List;
 public class Banco {
 
     private final List<Cliente> clientes = new ArrayList<>();
+
+    private OperacaoTransferencia transferenciaFundosService = new TransferenciaFundosService();
 
     public Banco() {
 
@@ -30,4 +34,7 @@ public class Banco {
             .forEach(cli -> System.out.println(cli.getSobrenome() + ", " + cli.getNome()));
     }
     
+    public void transferirFundos(Conta contaOrigem, Conta contaDestino, LocalDateTime data, BigDecimal valor) {
+        transferenciaFundosService.transfereFundos(contaOrigem, contaDestino, data, valor);
+    }
 }   
