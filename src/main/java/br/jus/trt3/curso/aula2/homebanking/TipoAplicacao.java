@@ -1,14 +1,7 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
-public class TipoAplicacao {
+public enum TipoAplicacao {
 
-    private final String descricao;
+    UM, DOIS, TRES;
 
-    public TipoAplicacao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
 }
