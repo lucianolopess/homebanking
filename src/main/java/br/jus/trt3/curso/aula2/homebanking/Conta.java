@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Conta {
+public abstract class Conta {
 
     private Cliente cliente;
     private final Long id;
@@ -81,4 +81,7 @@ public class Conta {
     public BigDecimal descontarTaxaMensal() {
         return BigDecimal.valueOf(0d);
     }
+
+    public abstract void aceitarVisitante(Visitante visitante);
+
 }

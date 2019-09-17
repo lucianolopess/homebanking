@@ -19,4 +19,9 @@ public class ContaCorrente extends Conta {
     public BigDecimal descontarTaxaMensal() {
         return BigDecimal.valueOf(1d);
     }
+
+    @Override
+    public void aceitarVisitante(Visitante visitante) {
+        visitante.visitar(this);
+    }
 }

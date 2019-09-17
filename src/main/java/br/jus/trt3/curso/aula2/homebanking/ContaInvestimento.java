@@ -19,4 +19,8 @@ public class ContaInvestimento extends Conta {
     public BigDecimal descontarTaxaMensal() {
         return getSaldo().multiply(BigDecimal.valueOf(0.01 / 100));
     }
+
+    @Override
+    public void aceitarVisitante(Visitante visitante) {
+    }
 }
