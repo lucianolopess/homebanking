@@ -1,7 +1,6 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,20 +8,26 @@ import java.util.List;
 
 public class Conta {
 
-    private final Cliente cliente;
+    private Cliente cliente;
     private final Long id;
     private BigDecimal saldo;
     private final List<Movimento> movimentos = new ArrayList<>();
     private Subject<MovimentacaoAlta> emissor = new SubjectImpl<>();
 
-    public Conta(Cliente cliente, Long id, BigDecimal saldo) {
-        this.cliente = cliente;
+    public Conta(Long id, BigDecimal saldo) {
         this.id = id;
         this.saldo = saldo;
     }
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        if (this.cliente != null) {
+            throw new RuntimeException("Não pode mudar o cliente da conta");
+        }
+        this.cliente = cliente;
     }
 
     public Long getId() {

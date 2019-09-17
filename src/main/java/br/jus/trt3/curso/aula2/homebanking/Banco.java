@@ -37,4 +37,11 @@ public class Banco {
     public void transferirFundos(Conta contaOrigem, Conta contaDestino, LocalDateTime data, BigDecimal valor) {
         transferenciaFundosService.transfereFundos(contaOrigem, contaDestino, data, valor);
     }
+
+    public BigDecimal calcularAplicacaoTotal() {
+        return clientes.stream()
+            .flatMap(cli -> cli.getContas().stream())
+            .map(conta -> conta.getSaldo())
+            .reduce(BigDecimal.valueOf(0d), (total, saldo) -> total.add(saldo));
+    }
 }   

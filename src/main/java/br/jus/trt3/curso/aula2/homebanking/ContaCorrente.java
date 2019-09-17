@@ -6,8 +6,8 @@ public class ContaCorrente extends Conta {
 
     private final BigDecimal limiteCredito;
 
-    public ContaCorrente(Cliente cliente, Long id, BigDecimal saldo, BigDecimal limiteCredito) {
-        super(cliente, id, saldo);
+    public ContaCorrente(Long id, BigDecimal saldo, BigDecimal limiteCredito) {
+        super(id, saldo);
         this.limiteCredito = limiteCredito;
     }
 

@@ -1,7 +1,6 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -42,6 +41,7 @@ public class Cliente {
     }
 
     public void addConta(Conta conta) {
+        conta.setCliente(this);
         this.contas.add(conta);
     }
 
@@ -49,12 +49,54 @@ public class Cliente {
         return BigDecimal.valueOf(0d);
     }
 
-    public void transferirFundos(Conta contaOrigem, Conta contaDestino, LocalDate data, BigDecimal valor) {
-        // TODO: Decidir onde colocar esse teste (na própria transferência? no banco? no cliente?)
-        if (contaOrigem.getCliente().equals(contaDestino.getCliente())) {
-            // Trassnf sem taxa
-        } else {
-            // Trans fcom taxa
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+
+        private String nome;
+        private String sobrenome;
+        private String endereco;
+        private String telefone;
+        private List<Conta> contas = new ArrayList<>();
+    
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder sobrenome(String sobrenome) {
+            this.sobrenome = sobrenome;
+            return this;
+        }
+
+        public Builder endereco(String endereco) {
+            this.endereco = endereco;
+            return this;
+        }
+
+        public Builder telefone(String telefone) {
+            this.telefone = telefone;
+            return this;
+        }
+
+        public Builder addContaCorrente(Long id, BigDecimal saldo, BigDecimal limiteCredito) {
+            contas.add(new ContaCorrente(id, saldo, limiteCredito));
+            return this;
+        }
+
+        public Builder addContaInvestimento(Long id, BigDecimal saldo, TipoAplicacao tipo) {
+            contas.add(new ContaInvestimento(id, saldo, tipo));
+            return this;
+        }
+
+        public Cliente build() {
+            Cliente cli = new Cliente(nome, sobrenome, endereco, telefone);
+            contas.stream()
+                .forEach(c -> cli.addConta(c));
+            return cli;
         }
     }
+    
 }
