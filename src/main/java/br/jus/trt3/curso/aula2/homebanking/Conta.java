@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Flow.Subscriber;
 
 public abstract class Conta {
 
@@ -66,7 +65,7 @@ public abstract class Conta {
         }
 
         if (valor.compareTo(BigDecimal.valueOf(1000)) > 0) {
-            if (data.getHour() < 6 || data.getHour() >22) {
+            if (data.getHour() < 6 || data.getHour() > 22) {
                 throw new IllegalArgumentException("Horário de saque não permitido para valores acima de 1000");
             }
         }

@@ -13,7 +13,7 @@ public class Cliente {
     private final String telefone;
     private final List<Conta> contas = new ArrayList<>();
 
-    public Cliente(String nome, String sobrenome, String endereco, String telefone) {
+    private Cliente(String nome, String sobrenome, String endereco, String telefone) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.endereco = endereco;

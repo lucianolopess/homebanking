@@ -1,7 +1,6 @@
 package br.jus.trt3.curso.aula2.homebanking;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AplicacaoTaxaMensalVisitante implements Visitante {
